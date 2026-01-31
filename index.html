@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YASEEN | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#0e0e15;
+  color:#fff;
+  scroll-behavior:smooth;
+}
+
+/* ===== KEYFRAMES ===== */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px)}
+  to{opacity:1; transform:translateY(0)}
+}
+@keyframes fadeLeft{
+  from{opacity:0; transform:translateX(-50px)}
+  to{opacity:1; transform:translateX(0)}
+}
+@keyframes fadeRight{
+  from{opacity:0; transform:translateX(50px)}
+  to{opacity:1; transform:translateX(0)}
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-15px)}
+}
+/* ---NAME GLOW--- */
+@keyframes glowPulse{     
+  0%{
+    text-shadow:
+      0 0 8px rgba(127,92,255,.4),
+      0 0 16px rgba(127,92,255,.3);
+  }
+  100%{
+    text-shadow:
+      0 0 16px rgba(127,92,255,.8),
+      0 0 32px rgba(127,92,255,.6);
+  }
+}
+
+.glow-vio{
+  animation:glowPulse 1s ease-in-out infinite alternate-reverse;
+}
+.glow-name{
+color:#facc15;
+font-weight:700;
+text-shadow:
+  0 0 2px #fde047,
+  0 0 2px #f59e0b,
+  0 0 5px #fbbf24;
+
+}
+.light.glow-name{
+color:#facc15;
+font-weight:700;
+text-shadow:
+  0 0 2px #fde047,
+  0 0 2px #f59e0b,
+  0 0 5px #fbbf24;
+
+}
+/* ===== NAVBAR ===== */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:20px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(14,14,21,.85);
+  backdrop-filter:blur(12px);
+  z-index:1000;
+  animation:fadeUp 1s ease;
+}
+
+nav h2{font-weight:700;}
+
+.theme-btn{
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--text);
+  font-size:25px;
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-left:-10px;
+  margin-top: -10px;
+  transition:.3s;
+}
+.theme-btn:hover{
+  background:var(--accent);
+  
+}
+
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
+
+nav ul li a{
+  color:#ccc;
+  text-decoration:none;
+  transition:.3s;
+}
+nav ul li a:hover{  
+  color:#7f5cff}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  padding:140px 8% 80px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:40px;
+}
+
+.hero-text{
+  animation:fadeLeft 1.2s ease;
+}
+
+.hero-text h1{
+  font-size:3.4rem;
+  line-height:1.2;
+}
+
+.hero-text p{
+  margin:20px 0;
+  color:#bdbdbd;
+}
+
+.hero-btns{
+  display:flex;
+  gap:20px;
+}
+
+.hero-btns button{
+  padding:14px 32px;
+  border-radius:30px;
+  border:none;
+  cursor:pointer;
+  font-size:1rem;
+  transition:.3s;
+}
+
+.hero-btns button:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(127,92,255,.45);
+}
+
+.btn-primary{
+  background:#7f5cff;
+  color:#fff;
+}
+
+.btn-outline{
+  background:transparent;
+  color:#fff;
+  border:2px solid #7f5cff;
+}
+
+/* ===== HERO IMAGE FIXED ===== */
+.hero-img{
+  width:100%;
+  max-width:420px;
+  height:520px;
+  margin:auto;
+  border-radius:30px;
+  background:linear-gradient(135deg,#7f5cff,#ff6ec7);
+  padding:6px;
+  animation:fadeRight 1.2s ease, float 4s ease-in-out infinite;
+  box-shadow:0 0 60px rgba(127,92,255,.35);
+}
+
+.hero-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:26px;
+  background:#111; /* FIX IMAGE BACKGROUND */
+}
+
+/* ===== SECTION COMMON ===== */
+section{
+  padding:100px 8%;
+}
+
+.section-title{
+  font-size:2.4rem;
+  margin-bottom:40px;
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(60px);
+  transition:all .9s ease;
+}
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== ABOUT ===== */
+.about{ 
+  display:flex;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+.about p{
+  color:#cfcfcf;
+  line-height:2.0;
+}
+#but:hover{
+  transform:translateY(-12px) scale(1.03);
+  box-shadow:0 25px 60px rgba(127,92,255,.25);
+}
+
+/* ===== SKILLS SECTION ===== */
+#skills{
+  padding:80px 8%;
+  background:#0b1020;
+  color:#fff;
+}
+
+.section-title{
+  text-align:center;
+  font-size:2.4rem;
+  margin-bottom:50px;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+p span{
+  color:#7f5cff;
+  font-weight:1000;
+}
+
+/* Grid layout */
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+  gap:25px;
+}
+
+/* Skill card */
+.skill-btn{
+  background:linear-gradient(145deg,#121a34,#0b1020);
+  border-radius:18px;
+  padding:25px 20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:14px;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+
+/* Hover lift */
+.skill-btn:hover{
+  transform:translateY(-12px) scale(1.03);
+  box-shadow:0 25px 60px currentColor;
+}
+
+/* Skill icon */
+.skill-btn img{
+  width:55px;
+  height:55px;
+  object-fit:contain;
+  filter:drop-shadow(0 6px 12px rgba(0,0,0,.4));
+}
+
+/* Skill name */
+.skill-btn{
+  font-size:1.05rem;
+  font-weight:600;
+}
+
+/* Tag button */
+.skill-btn button{
+  margin-top:10px;
+  padding:6px 14px;
+  border:none;
+  border-radius:30px;
+  font-size:.75rem;
+  font-weight:600;
+  cursor:default;
+  color:#fff;
+  background:rgba(255,255,255,.15);
+  backdrop-filter:blur(6px);
+}
+
+/* Glow animation */
+.skill-btn::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.15),transparent);
+  transform:translateX(-100%);
+  transition:.6s;
+}
+
+.skill-btn:hover::before{
+  transform:translateX(100%);
+}
+
+/* Color accents */
+.primary{border:1px solid #0d6efd}
+.secondary{border:1px solid #6c757d}
+.success{border:1px solid #198754}
+.danger{border:1px solid #dc3545}
+.warning{border:1px solid #ffc107}
+.info{border:1px solid #0dcaf0}
+.light{border:1px solid #adb5bd}
+
+/* Reveal animation */
+.reveal{
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+
+#king button{
+  margin-left:50px;
+  border-radius: 40px;
+}
+/* ===== PROJECTS ===== */
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.project{
+  background:#161622;
+  border-radius:20px;
+  overflow:hidden;
+  transition:.4s;
+}
+.project:hover{
+  transform:scale(1.05);
+  box-shadow:0 20px 50px rgba(127,92,255,.25);
+}
+
+#net{
+  height: 30px;
+  width: 515px;
+  border-radius: 10px;
+  background-color: #7f5cff;
+  font-weight:550;
+  border: none;    
+}
+
+#vic{
+  height: 30px;
+  width: 1090px;
+  border-radius: 10px;
+  background-color: #7f5cff;
+  font-weight:550;
+  border: none;
+  transform:translateY(-12px) scale(1.03);
+}
+
+.project img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+.project div{padding:20px}
+
+/* ===== CONTACT ===== */
+.contact-box{
+  max-width:600px;
+  margin:auto;
+  background:#161622;
+  padding:40px;
+  border-radius:20px;
+  animation:fadeUp 1s ease;
+}
+.contact-box h3{color:#7f5cff}
+.contact-box p{margin-bottom:15px; color:#cfcfcf}
+
+/* ===== FOOTER ===== */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#aaa;
+}
+
+/* Social Icons */
+.social-icons{
+  display:flex;justify-content:center;gap:20px;margin-top:40px
+}
+.social-icons a{
+  width:65px;height:65px;border-radius:50%;
+  background:#161622;display:flex;align-items:center;justify-content:center;
+  transition:.4s
+}
+.social-icons a img{width:32px;height:32px;filter:brightness(0) invert(1)}
+.social-icons a:hover{
+  background:#7f5cff;transform:translateY(-6px) scale(1.1);
+  box-shadow:0 0 25px rgba(127,92,255,.6)
+}
+
+
+/* ===== EDUCATION ===== */
+.education-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.edu-box{
+  background:#161622;
+  padding:30px;
+  border-radius:20px;
+  position:relative;
+  transition:.4s;
+  border-left:4px solid #7f5cff;
+}
+
+.edu-box:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 45px rgba(127,92,255,.35);
+}
+
+.edu-box h3{
+  color:#7f5cff;
+  margin-bottom:10px;
+}
+
+.edu-box h4{
+  font-size:1.1rem;
+  margin-bottom:8px;
+}
+
+.edu-box p{
+  color:#cfcfcf;
+  font-size:.95rem;
+  line-height:1.7;
+}
+
+.edu-year{
+  position:absolute;
+  top:25px;
+  right:25px;
+  background:#7f5cff;
+  color:#fff;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:.85rem;
+}
+
+/* ===== CONTACT SECTION ===== */
+#contact{
+  padding:100px 8%;
+  background:#0e0e15;
+}
+
+.contact-box{
+  max-width:620px;
+  margin:auto;
+  background:linear-gradient(145deg,#161622,#0b0b14);
+  padding:45px;
+  border-radius:22px;
+  box-shadow:0 25px 60px rgba(127,92,255,.25);
+}
+
+/* Contact row */
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  padding:18px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+
+.contact-item:last-child{
+  border-bottom:none;
+}
+
+/* Icon circle */
+.contact-item .icon{
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  background:#7f5cff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.4rem;
+  box-shadow:0 0 20px rgba(127,92,255,.6);
+}
+
+/* Text */
+.contact-item h4{
+  margin:0;
+  font-size:1rem;
+  color:#7f5cff;
+}
+
+.contact-item p{
+  margin:4px 0 0;
+  color:#cfcfcf;
+  font-size:.95rem;
+}
+
+
+/* ===== EDUCATION SECTION ===== */
+.education-section{
+  padding:100px 8%;
+}
+
+.education-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.edu-box{
+  background:#161622;
+  padding:30px;
+  border-radius:20px;
+  position:relative;
+  transition:.4s;
+  border-left:4px solid #7f5cff;
+}
+
+.edu-box:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 45px rgba(127,92,255,.35);
+}
+
+.edu-year{
+  position:absolute;
+  top:25px;
+  right:25px;
+  background:#7f5cff;
+  color:#fff;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:.85rem;
+}
+
+.edu-box h3{
+  color:#7f5cff;
+  margin-bottom:10px;
+}
+
+.edu-box h4{
+  font-size:1.1rem;
+  margin-bottom:8px;
+}
+
+.edu-box p{
+  color:#cfcfcf;
+  font-size:.95rem;
+  line-height:1.7;
+}
+
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  padding:14px 18px;
+  border-radius:14px;
+  border:2px solid transparent;
+  background:#0e0e15;
+  color:#fff;
+  font-size:1rem;
+  outline:none;
+  transition:.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color:#7f5cff;
+  box-shadow:0 0 15px rgba(127,92,255,.35);
+}
+
+.contact-form textarea{
+  resize:none;
+}
+
+.contact-form button{
+  padding:14px;
+  border-radius:30px;
+  border:none;
+  background:#7f5cff;
+  color:#fff;
+  font-size:1rem;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.contact-form button:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(127,92,255,.45);
+}
+
+.project h3{
+  color: #7f5cff;
+}
+
+/* ================= LIGHT MODE ================= */
+body.light{
+  background:#f8fafc;
+  color:#0f172a;
+}
+
+/* Navbar */
+body.light nav{
+  background:rgba(255,255,255,0.9);
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+}
+body.light nav h2{
+  color:#0d9488;
+}
+body.light nav ul li a{
+  color:#334155;
+}
+body.light nav ul li a:hover{
+  color:#0d9488;
+}
+
+/* Sections */
+body.light section{
+  background:#f8fafc;
+}
+
+/* Headings */
+body.light .section-title,
+body.light h1,
+body.light h2,
+body.light h3,
+body.light h4{
+  color:#0d9488;
+}
+
+/* Paragraph text */
+body.light p{
+  color:#334155;
+}
+
+/* Hero */
+body.light .hero-text p{
+  color:#475569;
+}
+
+/* Buttons */
+body.light .btn-primary,
+body.light .contact-form button{
+  background:#0d9488;
+  color:#ffffff; 
+}
+body.light .btn-outline{
+  border:2px solid #0d9488;
+  color:#0d9488;
+}
+body.light .btn-outline:hover{
+  background:#0d9488;
+  color:#ffffff;
+}
+
+/* Cards (projects, skills, education, contact) */
+body.light .project,
+body.light .edu-box,
+body.light .contact-box{
+  background:#ffffff;
+  border:1px solid #e2e8f0;
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* ===== SKILLS SECTION : LIGHT MODE ===== */
+
+body.light #skills{
+  background:#f8fafc;
+}
+
+/* Skill cards */
+body.light .skill-btn{
+  background:linear-gradient(145deg,#ffffff,#f1f5f9);
+  color:#0f172a;
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.08);
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+
+/* Hover effect */
+body.light .skill-btn:hover{
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 25px 50px rgba(13,148,136,.35);
+}
+
+/* Skill icon */
+body.light .skill-btn img{
+  filter:none;
+}
+
+/* Tag button */
+body.light .skill-btn button{
+  background:#e6fffa;
+  color:#0d9488;
+  font-weight:600;
+}
+
+/* Glow animation */
+body.light .skill-btn::before{
+  background:linear-gradient(
+    120deg,
+    transparent,
+    rgba(13,148,136,.25),
+    transparent
+  );
+}
+
+/* Accent borders */
+body.light .edu-box{
+  border-left:4px solid #0d9488;
+}
+body.light .edu-year{
+  background:#0d9488;
+}
+
+.light #net{
+  background-color: #0d9488;
+  font-weight:550;
+  border: none;
+}
+
+.light #vic{
+  background-color: #0d9488;
+  font-weight:1090;
+  border: none;
+}
+
+/* Contact icons */
+body.light #contact{
+  background-color: #f8fafc;
+}
+body.light .contact-item .icon{
+  background:#0d9488;
+  box-shadow:0 0 15px rgba(13,148,136,.4);
+}
+body.light .contact-item h4{
+  color:#0d9488;
+}
+body.light .contact-item p{
+  color:#334155;
+}
+
+/* Inputs */
+body.light .contact-form input,
+body.light .contact-form textarea{
+  background:#ffffff;
+  color:#0f172a;
+  border:1px solid #cbd5e1;
+}
+body.light .contact-form input:focus,
+body.light .contact-form textarea:focus{
+  border-color:#0d9488;
+  box-shadow:0 0 10px rgba(13,148,136,.3);
+}
+body.light .contact-box{
+  background:#ffffff;
+  border:1px solid #e2e8f0;
+  box-shadow:0 10px 30px rgba(0,0,0,0.06);
+}
+
+/* Social icons */
+body.light .social-icons a{
+  background:#ffffff;
+}
+body.light .social-icons a img{
+  filter: none;
+  background-color:#0d9488;
+  border-radius: 30%;
+}
+body.light .social-icons a:hover{
+  background:#0d9488;
+}
+
+/* Footer */
+body.light footer{
+  color:#475569;
+}
+
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .hero,.about{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+  nav ul{display:none}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <h2>YASEEN J</h2>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><button id="themeToggle" class="theme-btn"><i class="fa-solid fa-toggle-off"></i></button>
+</li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>
+      I AM <span class="glow-name" style="font-weight: bold;">YASEEN J</span><br>
+      <span id="vio" style="color:#7f5cff;"></span><br>
+    </h1>
+    <p>I build modern, fast and intelligent digital experiences.</p>
+    <div class="hero-btns">
+      <a href="#contact"><button class="btn-primary">Contact</button></a>
+      <a href="#projects"><button class="btn-outline">View Work</button></a>
+    </div>
+  </div>
+
+  <div class="hero-img">
+    <img src="YASEEN1.jpeg" alt="Profile Image">
+  </div>
+</section>
+
+<section id="about" class="reveal">
+  <h2 class="section-title">About Me</h2>
+  <div class="about">
+    <p>Full Stack Python Developer with a strong foundation in backend and frontend development principles. Proficient in Python for building scalable server-side applications using frameworks such as Django and Flask. Experienced in developing responsive user interfaces using HTML, CSS, JavaScript, and modern frontend libraries. Skilled in designing and managing databases with SQL and NoSQL technologies, including MySQL, PostgreSQL, and MongoDB. Hands-on experience in creating RESTful APIs, integrating third-party services, and implementing authentication and authorization mechanisms. Knowledgeable in version control using Git, deployment workflows, and performance optimization. Capable of building end-to-end web applications and translating business requirements into efficient, reliable software solutions. Motivated to continuously learn and apply modern full stack development technologies.</p>
+  </div>
+  <div id="king">
+<button type="button" id="but" class="btn btn-outline-primary">HTML</button>
+<button type="button" id="but" class="btn btn-outline-secondary">CSS</button>
+<button type="button" id="but" class="btn btn-outline-success">JavaScript</button>
+<button type="button" id="but" class="btn btn-outline-danger">bootstrap</button>
+<button type="button" id="but" class="btn btn-outline-warning">Python</button>
+<button type="button" id="but" class="btn btn-outline-info">Mongo DB</button>
+<button type="button" id="but" class="btn btn-outline-success">MySQL</button>
+<button type="button" id="but" class="btn btn-outline-danger">Django</button><br><br>
+<button type="button" id="but" class="btn btn-outline-warning">Flask</button>
+<button type="button" id="but" class="btn btn-outline-info">REST API</button>
+<button type="button" id="but" class="btn btn-outline-success">Git</button>
+</div>
+  
+<div class="social-icons">
+    <a href="https://github.com/janiy9768-cmyk" target="_blank"><img src="git.png"></a>
+    <a href="https://www.linkedin.com/in/yaseen-j-373901292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><img src="in.png"></a>
+    <a href="#contact1"><img src="email.png"></a>
+  </div>
+
+
+</section>
+
+<section id="skills" class="reveal">
+  <h2 class="section-title">Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-btn primary"><img src="html5.png">HTML<button>Programming</button></div>
+    <div class="skill-btn secondary"><img src="python.png">Python <button>Programming</button></div>
+    <div class="skill-btn success"><img src="css1.jpg">CSS<button>Styling</button></div>
+    <div class="skill-btn danger"><img src="java script.jpg">JavaScript<button>Programming</button></div>
+    <div class="skill-btn warning"><img src="mongo.png">MongoDB <button>Database</button></div>
+    <div class="skill-btn info"><img src="my.png">MySQL <button>Database</button></div>
+    <div class="skill-btn light"><img src="bootstrap-logo.png">Bootstrap<button>Framework</button></div>
+    <div class="skill-btn primary"><img src="django.png">Django <button>Framework</button></div>
+    <div class="skill-btn secondary"><img src="flaski.png">Flask <button>Framework</button></div>
+    <div class="skill-btn success"><img src="rest.png">REST API <button>Web Service</button></div>
+    <div class="skill-btn danger"><img src="git.png">Git <button>Version Control</button></div>
+  </div>
+</section>
+
+
+
+<section id="projects" class="reveal">
+  <h2 class="section-title">Projects</h2>
+  <div class="projects-grid">
+    <div class="project">
+      <img src="EDUCA.avif">
+      <div><h3 style="font-weight: bold;">HTML & CSS PROJECT:Education website</h3><p>This project involves the design and development of a responsive, multi-page website using HTML5 and CSS3. The website includes several structured pages such as login, signup, landing, and information pages, each styled with dedicated CSS files to ensure consistency and visual clarity. Emphasis was placed on clean layout design, user-friendly navigation, and responsive behavior across different screen sizes.The project demonstrates strong frontend development skills, including semantic HTML structure, modular CSS styling, and organized file management. By separating styles for different pages, the project ensures maintainability and scalability. Overall, this project reflects practical experience in building static web applications with a focus on usability, design aesthetics, and professional web standards.</p>
+      <a href="https://education-web-site-4.onrender.com" target="_blank"><button id="net">View Project</button></a></div>
+    </div>
+    <div class="project">
+      <img src="CARRE.avif">
+      <div><h3 style="font-weight: bold;">HTML,CSS & JavaScript PROJECT:Online Car Rental Website</h3><p>The Online Car Rental Website is a web-based application designed to provide users with an easy and efficient way to browse, book, and inquire about rental cars. The website includes multiple pages such as Home, Cars, Booking, and About, offering a smooth navigation experience. Users can view available cars, submit booking details, and contact the service through a validated contact form.The project is developed using HTML, CSS, and JavaScript, focusing on responsive design, user-friendly interfaces, and form validation. Input validation highlights errors in red and successful entries in green, improving usability and data accuracy. Overall, the project demonstrates practical frontend development skills, clean UI design, and the ability to build a functional real-world web application.</p><a href="https://car-rentel-6.onrender.com" target="_blank"><button id="net">View Project</button></a></div>
+    </div>
+  </div><br><br>
+  <div class="project">
+      <img src="hos.jfif">
+      <div><h3 style="font-weight: bold;">Hospital Management System</h3><p>The Hospital Management System is a comprehensive web-based application designed to streamline hospital operations and improve patient care. The system allows administrators to manage patient records, appointments, doctors’ schedules, and hospital resources efficiently. Built using Python (Django/Flask) for the backend and integrated with SQL or MongoDB databases, the system ensures secure storage and retrieval of patient and staff data. Features include patient registration, appointment booking, treatment tracking, billing management, and reporting dashboards for hospital management. This project emphasizes full-stack development skills, including database design, server-side logic, and responsive frontend interfaces using HTML, CSS, and JavaScript. It demonstrates proficiency in data handling, user authentication, form validation, and real-time data updates. The system improves operational efficiency, reduces manual paperwork, and provides a centralized platform for hospital staff to make informed decisions. Overall, it reflects practical experience in building real-world healthcare applications with robust backend and user-friendly frontend solutions..</p><a href="https://github.com/janiy9768-cmyk" target="_blank"><button id="vic">View Project</button></a></div>
+    </div>
+  </div>
+  <div class="project">
+      <img src="images.png">
+      <div><h3 style="font-weight: bold;">Project Summary – Vehicle Management System (Python)</h3><p>The Vehicle Management System is a desktop-based application developed using Python and Tkinter to manage user authentication and vehicle-related operations efficiently. The system includes a secure login module connected to a MySQL database using PyMySQL, ensuring proper validation of user credentials. Upon successful login, users are redirected to the main form page for further operations. The application integrates database connectivity, error handling, and user-friendly GUI design, along with image handling using the Pillow library. This project demonstrates strong skills in Python programming, database management, GUI development, and real-world application design.</p><a href="https://github.com/janiy9768-cmyk" target="_blank"><button id="vic">View Project</button></a></div>
+    </div>
+  </div>
+</section>
+<section id="education" class="reveal">
+  <h2 class="section-title">Education</h2>
+
+  <div class="education-grid">
+
+    <div class="edu-box">
+      <span class="edu-year">2021 - 2024</span>
+      <h3>Bachelor’s Degree</h3>
+      <h4>B.Sc Computer Scince</h4>
+      <p>
+        * I am a B.Sc. Computer Science graduate from Periyar University.Mathematical Foundation: Studied Classical Algebra, Trigonometry, Differential Calculus, and Analytical Solid Geometry..<br><br>
+        * Programming Skills: Proficient in languages like C, C++, Java, and Python.Database Knowledge: Familiar with SQL, MongoDB, and database management concepts.<br><br>
+        * Data Structures & Algorithms: Strong understanding of core data structures, sorting, searching, and algorithm design.<br><br>
+        * Web Development: Knowledge of HTML, CSS, JavaScript, and basic web application development<br><br>
+        * Problem-Solving: Developed logical thinking and analytical skills through programming and mathematics.<br><br>
+        * Software Tools: Hands-on experience with IDEs, version control (Git), and development tools.<br><br>
+        * Project Experience: Completed academic and personal projects demonstrating coding, debugging, and application development skills.Continuous Learning: Enthusiastic about learning emerging technologies and applying theoretical knowledge to practical solutions..
+      </p>
+    </div>
+
+<section class="education-section">
+  <h2 class="section-title">Education</h2>
+
+  <div class="education-grid">
+
+    <div class="edu-box">
+      <span class="edu-year">2021 – 2024</span>
+      <h3>Bachelor’s Degree</h3>
+      <h4>B.sc Computer Scince</h4>
+      <p>
+       <span>I am Yaseen</span> , a Statistics student at <span>Government Arts College</span> attur , Tamil Nadu-636121, with an academic. I have a strong interest in Codeing <span>analysis, logical reasoning, and problem-solving</span>. 
+      </p>
+    </div>
+  </div>
+</section>
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <h2 class="section-title">Contact</h2>
+
+  <div class="contact-box">
+    <div class="contact-item">
+      <span class="icon">👤</span>
+      <div>
+        <h4>Name</h4>
+        <p>YASEEN</p>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <span class="icon"><img src="in.png" alt="linkedin" width="32"></span>
+      <div>
+        <h4>linkedin</h4>
+        <a href="https://www.linkedin.com/in/yaseen-j-373901292?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" style="text-decoration: none;"><p>https://www.linkedin.com/in/yaseen/</p></a>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <span class="icon">📧</span>
+      <div>
+        <h4>Email</h4>
+        <a href="mailto:janiy9768@gmail.com" style="text-decoration: none;"><p>janiy9768@gmail.com</p></a>
+      </div>
+    </div>
+
+    <div class="contact-item">
+      <span class="icon">📞</span>
+      <div>
+        <h4>Phone</h4>
+        <p>+91 6385821490</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact1" class="reveal">
+  <h2 class="section-title">Send Me a Message</h2>
+
+  <div class="contact-box">
+    <form
+      class="contact-form"
+      action="https://formspree.io/f/mykjqwpw"
+      method="POST"
+    >
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+
+<footer>
+  © 2025  YASEEN Portfolio
+</footer>
+<script>
+let reveals = document.querySelectorAll(".reveal");
+let form = document.querySelector(".contact-form");
+let successMsg = document.querySelector(".success-msg");
+
+form.addEventListener("submit", function () {
+  setTimeout(() => {
+    successMsg.style.display = "block";
+    form.reset();
+  }, 500);
+});
+function revealOnScroll(){
+  reveals.forEach(el=>{
+    let top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add("active");
+    }
+  });
+}
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+let words = ["Full Stack Developer", "Python Developer", "HTML", "CSS","Java Script","Bootsrap","Django","Flask","Mongodb","My Sql","Git","Rest API"];
+let index = 0;
+let charIndex = 0;
+let text = document.getElementById("vio");
+
+function typeWord() {
+  if (charIndex < words[index].length) {
+    text.textContent += words[index].charAt(charIndex);
+    charIndex++;
+    setTimeout(typeWord, 80);
+  } else {
+    setTimeout(deleteWord, 1200);
+  }
+}
+
+let btn = document.getElementById("themeToggle");
+
+btn.addEventListener("click", () => {
+  document.body.classList.toggle("light");
+
+  btn.innerHTML = document.body.classList.contains("light")
+    ? "<i class=\"fa-solid fa-toggle-on\"></i>"
+    : "<i class=\"fa-solid fa-toggle-off\"></i>";
+});
+
+function deleteWord() {
+  if (charIndex > 0) {
+    text.textContent = text.textContent.slice(0, -1);
+    charIndex--;
+    setTimeout(deleteWord, 50);
+  } else {
+    index = (index + 1) % words.length;
+    setTimeout(typeWord, 300);
+  }
+}
+
+typeWord();
+
+</script>
+
+</body>
+</html>
